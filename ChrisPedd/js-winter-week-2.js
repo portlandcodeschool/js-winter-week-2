@@ -31,11 +31,11 @@ petNamePraise("Dorothy Van Der Kat");
 
 //////////////////////////////////////
 console.log("\nPart 5");
-var hello = function (name) {
-	return "Buenos dias, " + name + ". Puedo tener un cafe?";
+var hello = function (name, user) {
+	return user + ": " + name + ". I need you to make me a sandwich.\n" + name + ": what? make it yourself, " + user +".\n" + user + ": sudo make me a sandwich.\n" + name + ": okay.";
 }
 
-console.log( hello("Tiffany") );
+console.log( hello("Tiffany", "Burt") );
 
 //////////////////////////////////////
 console.log("\nPart 7");
