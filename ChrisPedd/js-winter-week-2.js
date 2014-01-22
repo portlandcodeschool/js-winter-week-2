@@ -1,11 +1,11 @@
-//////////////////////////////////////
+////////////////////////////////////// PART 1
 console.log("\nPart 1");
 
 function superSeriousFunction () {
 
 }
 
-//////////////////////////////////////
+////////////////////////////////////// PART 2
 console.log("\nPart 2");
 function politeGreeting () {
 	return "Top of the day to you, good sir!";
@@ -13,7 +13,7 @@ function politeGreeting () {
 
 console.log (politeGreeting() );
 
-//////////////////////////////////////
+////////////////////////////////////// PART 3
 console.log("\nPart 3");
 var headliner = function (headline) {
 	console.log(headline);
@@ -21,7 +21,17 @@ var headliner = function (headline) {
 
 headliner("BEER SHORTAGE IN PORTLAND, MASS RIOTS ENSUE!");
 
-//////////////////////////////////////
+////////////////////////////////////// PART 3.1 DONE PROPER MAYBE
+console.log("\nPart 3.1");
+var headlined = function () {
+	console.log("DOES LOVE LEAD TO WEIGHT GAIN? CLICK THIS GODDAMN LINK TO FIND OUT MORE.");
+}
+
+var callHeadlined = headlined();
+callHeadlined;
+
+
+////////////////////////////////////// PART 4
 console.log("\nPart 4");
 var petNamePraise = function(petNameHere) {
 	console.log(petNameHere + " is the world's greatest ball of fur to ever walk the earth.");
@@ -29,7 +39,7 @@ var petNamePraise = function(petNameHere) {
 
 petNamePraise("Dorothy Van Der Kat");
 
-//////////////////////////////////////
+////////////////////////////////////// PART 5
 console.log("\nPart 5");
 var hello = function (name, user) {
 	return user + ": " + name + ". I need you to make me a sandwich.\n" + name + ": what? make it yourself, " + user +".\n" + user + ": sudo make me a sandwich.\n" + name + ": okay.";
@@ -37,7 +47,7 @@ var hello = function (name, user) {
 
 console.log( hello("Tiffany", "Burt") );
 
-//////////////////////////////////////
+////////////////////////////////////// PART 6
 console.log("\nPart 7");
 function stringer (stringGoesHere) {
   var stringReversed = "",
