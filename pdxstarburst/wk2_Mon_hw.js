@@ -1,6 +1,6 @@
 
 //Part 1 & 2 
-var hello = function() {
+function hello() {
    console.log("Saying Hello!");
 };
 
