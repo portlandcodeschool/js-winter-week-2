@@ -1,7 +1,7 @@
 // Sean Sauve 
 // Week 2 Assignment
 // Javascript Winter Course
-// Portland Code School
+// Portland code school
 
 // Part 1 + 2
 console.log("Part 1 + 2:\n");
