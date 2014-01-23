@@ -21,13 +21,11 @@ catFancy();
 
 
 // Part 4
-var dogOutput = "";
-function dogNamer (petName) {
+var petLove = function dogNamer (petName) {
 	console.log(petName + " is the best pet in the world.");
-	return dogOutput;
+	
 }
-
-dogNamer("Odie");
+petLove("Odie");
 
 
 // Part 5
