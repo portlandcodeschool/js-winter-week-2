@@ -27,7 +27,7 @@ console.log(headline);
 // Have the function log to the console "petNameHere is the best pet in the whole wide world".
 
 var petName = function (petNameHere) {
-	 return console.log(petNameHere + " is the best pet in the whole wide world.");
+	 console.log(petNameHere + " is the best pet in the whole wide world.");
 };
 
 // Call the function and pass in a pet's name.
@@ -51,16 +51,16 @@ greeting('Jess');
 
 var string = "On the beach in hawaii";
 
-var newWord = function () {
+var newWord = function (str) {
 	var output = "";
 
-	for (var i = string.length - 1; i>= 0; i = i - 1) {
-		switch(string[i].toLowerCase()) {
+	for (var i = str.length - 1; i>= 0; i = i - 1) {
+		switch(str[i].toLowerCase()) {
 			case 'a': case 'e': case 'i': case 'o': case 'u': break;
 			case 'y': 
 				if (yisAVowel()) break;
 			default:
-			output += string[i];
+			output += str[i];
 		}
 
 	function yisAVowel() {
@@ -72,7 +72,7 @@ var newWord = function () {
 
 };
 
-console.log(newWord());
+console.log(newWord(string));
 
 
 
