@@ -14,17 +14,16 @@ limaPeru();
 
 // Part 3
 var newsHeadline = "Sir Stuffington the one-eyed pirate kitten rescued from storm drain";
-function catFancy () {
+var catFancyMag = function catFancy () {
 		console.log(newsHeadline);
-		}
-catFancy();
+		};
+catFancyMag();
 
 
 // Part 4
 var petLove = function dogNamer (petName) {
 	console.log(petName + " is the best pet in the world.");
-	
-}
+};
 petLove("Odie");
 
 
