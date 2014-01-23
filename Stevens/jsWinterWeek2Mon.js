@@ -34,9 +34,9 @@ var hello = function (name) {
 console.log(hello("Trevor"));
 
 //Part 6
-var rStr = "";
 
-var reverseStr = function (str) {	
+var reverseStr = function (str) {
+var rStr = "";	
 
 	for (var i = str.length - 1; i >= 0; i--) {
 		x = str[i].toLowerCase();
