@@ -33,11 +33,11 @@ news
 var petName = 'Rover' 
 
 var pets = function (petNameHere) {   
-	console.log(petNameHere + " is the best pet in the whole wide world.");
+	return (petNameHere + " is the best pet in the whole wide world.");
 }
 
 
-pets(petName)
+console.log(pets(petName))
 
 // Part 5  // Oooh!  I'm starting to get it!
 
