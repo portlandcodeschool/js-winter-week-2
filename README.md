@@ -4,6 +4,55 @@ js-winter-week-2
 JS Winter 2014: Week 2: Assignment 3 (Mon) &amp; Assignment 4 (Wed)
 (for more help with git and github, see the bottom of this document)
 
+## Wednesday Assignment
+Please put this assignment in the same working directory as Monday's. 
+
+### Basic Assignment
+All these go in the same file. Call the file `basic.js`.
+
+### Part 1
+- Declare an array containing the numbers '1', '2' and '3'.
+
+### Part 2
+- Use the `.push()` method to add the number '4' to the end of the array
+
+### Part 3
+- Use the `.shift()` method to remove the number '1' from the beginning of the array
+
+### Part 4
+- Use `console.log()` to verify that the array is now `['2', '3', '4']`
+
+### Part 5
+- Use the `unshift()` method to add the number '0.5' to the beginning of the array
+
+### Part 6
+- Use the `pop()` method to remove the number '4' from the end of the array
+
+### Part 7
+- Use `console.log` to verify that the array is now `['0.5', '2', '3']`
+
+### Intermediate Assignment
+All these should go in a file called `intermediate.js`
+
+### Part 1
+- Write a function that accepts an array and a string. Have it return true if the string is in the array, otherwise it should return false.
+
+### Part 2
+- Write a function that returns an exact copy of an existing array
+- Demonstrate that the newly created array is different from the original array by changing a value in the first array and observing that the second array is unaffected.
+
+### Part 3
+- Write a function that accepts an array of numbers and returns an array containing only the even integers from the original array.
+
+### Advanced Assignment
+
+### Roman Numeral Parser
+For this assignment, copy romnum.js into your working directory and follow the instructions in the code comments.
+
+This assignment is significantly more challenging. You need to implement two functions. One will convert a decimal number (Number type) to a roman numeral string. The other will convert a roman numeral string to a decimal number (Number type).
+
+Pay close attention to the comments in the file about where to put things. I've included some code for me to use to test your work. You shouldn't need to change it.
+
 ## Monday Assignment
 
 ### Part 1
