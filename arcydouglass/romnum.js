@@ -1,7 +1,15 @@
 if(!module.parent) { // Put any code you need to test your functions in here:
 
 // Example:
-console.log("53 in roman numerals is: " + decimalToRoman(53));  
+console.log("1 in roman numerals is: " + decimalToRoman(1)); 
+console.log("53 in roman numerals is: " + decimalToRoman(53)); 
+console.log("4 in roman numerals is: " + decimalToRoman(4));  
+console.log("9 in roman numerals is: " + decimalToRoman(9)); 
+console.log("500 in roman numerals is: " + decimalToRoman(500)); 
+console.log("90 in roman numerals is: " + decimalToRoman(90));
+console.log("40 in roman numerals is: " + decimalToRoman(40));
+console.log("900 in roman numerals is: " + decimalToRoman(900)); 
+console.log("999 in roman numerals is: " + decimalToRoman(999)); 
 
 }
 /*-----------------------------------------------------------------------------
@@ -33,8 +41,7 @@ function decimalToRoman (decimalNumber) {
   emptyStringArray(numeralLetterArray, valueArray.length - 1);
 
   //Divide number for numerals and retrurn
-  numberSplit(999);
-  //numberSplit(decimalNumber);
+  numberSplit(decimalNumber);
 
   letterAssembler(numeralCountArray, romanNumerals);
   romNumeral = numeralAssembler(numeralLetterArray);
@@ -43,49 +50,40 @@ function decimalToRoman (decimalNumber) {
 
 
   //-------- Support Functions for decimalToRoman ----------
-	function numberSplit(decimalNumber) {
-		//Test for thousands
-		if (divides(decimalNumber, valueArray[5]) >= 1)  {
-			numeralCountArray[5] = divides(decimalNumber, valueArray[5]);
-			decimalNumber -= (numeralCountArray[5] * valueArray[5]);
-			//console.log(valueArray[5] + " " + decimalNumber);
-		} 
+  function numberSplit(decimalNumber){
+  	//sortSplit(1000, 6);
+  	sortSplit(500, 5);
+  	sortSplit(100, 4, 'IM', 'ID');
+  	sortSplit(50, 3);
+  	sortSplit(10, 2, 'IC', 'IL');
+  	sortSplit(5, 1);
+  	sortSplit(1, 0, 'IX', 'IV');
 
-		//Test for five hundreds
-		if (divides(decimalNumber, valueArray[4]) >= 1) {
-			numeralCountArray[4] = divides(decimalNumber, valueArray[4]);
-			decimalNumber -= (numeralCountArray[4] * valueArray[4]);
-		}
+  	//outputArray(numeralCountArray);
+	  //outputArray(numeralLetterArray);
+  }
 
-		//Test for hundreds
-		if ((divides(decimalNumber, valueArray[3]) >= 1) && (divides(decimalNumber, valueArray[3]) != 4)){
-			numeralCountArray[3] = divides(decimalNumber, valueArray[3]);
-			decimalNumber -= (numeralCountArray[3] * valueArray[3]);
-		} else if ((divides(decimalNumber, valueArray[5]) >= 1) && (divides(decimalNumber, valueArray[5]) === 4)){
+	function sortSplit (value, countIndex, overrideString1, overrideString2){
+		if ((divides(decimalNumber, value) >= 1) && (divides(decimalNumber, value) != 4)){
+			numeralCountArray[countIndex] = divides(decimalNumber, value);
+      if (decimalNumber % value === 0) { decimalNumber = 0;}
+		}else if ((divides(decimalNumber, value) >= 1) && (divides(decimalNumber, value) === 4)){
 			//Manual Roman numeral overide if the condition is four or nine
-			numeralLetterArray[3] = 'ID'
+			//Check to see if number is a 4 or 9 and apply set numbers
+      if (decimalNumber % value === 0) { decimalNumber = 0;}
+			if (numeralCountArray[countIndex + 1] >= 1){
+				numeralCountArray[countIndex + 1] = 0;
+				numeralCountArray[countIndex] = 0;
+				numeralLetterArray[countIndex] = overrideString1;
+			} else {
+				numeralLetterArray[countIndex] = overrideString2;
+				numeralCountArray[countIndex + 1] = 0;
+				numeralCountArray[countIndex] = 0;
+			}
 		} 
-
-		//Test for fifties
-		if (divides(decimalNumber, valueArray[2]) >= 1){
-			numeralCountArray[2] = divides(decimalNumber, valueArray[2]);
-			decimalNumber -= (numeralCountArray[2] * valueArray[2]);
-		}
-
-		//Test for tens
-		if (divides(decimalNumber, valueArray[1]) >= 1){
-			numeralCountArray[1] = divides(decimalNumber, valueArray[1]);
-			decimalNumber -= (numeralCountArray[1] * valueArray[1]);
-		}
-
-		//Test for ones
-		if (divides(decimalNumber, valueArray[0]) >= 1){
-			numeralCountArray[0] = divides(decimalNumber, valueArray[0]);
-			decimalNumber -= (numeralCountArray[0] * valueArray[0]);
-		}
-		//outputArray(numeralCountArray);
+    decimalNumber -= (numeralCountArray[countIndex] * value);
+    //console.log("This is the decimal number: "+ decimalNumber);
 	}
-
 
   function numeralAssembler(array){
   	var numeralString = '';
@@ -129,7 +127,8 @@ function decimalToRoman (decimalNumber) {
 
   function outputArray(array){
   	for (var i = 0; i < array.length; i++){
-  		console.log(array[i]);
+  		//console.log(array[i]);
+      console.log("This is index " + i + " with value "+ array[i]);
   	}
   }
 
