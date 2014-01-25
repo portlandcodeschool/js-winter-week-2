@@ -1,17 +1,23 @@
 if(!module.parent) { // Put any code you need to test your functions in here:
 
 // Example:
-console.log("1 in roman numerals is: " + decimalToRoman(1)); 
-console.log("53 in roman numerals is: " + decimalToRoman(53)); 
-console.log("4 in roman numerals is: " + decimalToRoman(4));  
-console.log("9 in roman numerals is: " + decimalToRoman(9)); 
-console.log("500 in roman numerals is: " + decimalToRoman(500)); 
-console.log("90 in roman numerals is: " + decimalToRoman(90));
-console.log("40 in roman numerals is: " + decimalToRoman(40));
-console.log("900 in roman numerals is: " + decimalToRoman(900)); 
-console.log("999 in roman numerals is: " + decimalToRoman(999)); 
+// console.log("1 in roman numerals is: " + decimalToRoman(1)); 
+// console.log("53 in roman numerals is: " + decimalToRoman(53)); 
+// console.log("4 in roman numerals is: " + decimalToRoman(4));  
+// console.log("9 in roman numerals is: " + decimalToRoman(9)); 
+// console.log("500 in roman numerals is: " + decimalToRoman(500)); 
+// console.log("90 in roman numerals is: " + decimalToRoman(90));
+// console.log("40 in roman numerals is: " + decimalToRoman(40));
+// console.log("900 in roman numerals is: " + decimalToRoman(900)); 
+// console.log("999 in roman numerals is: " + decimalToRoman(999)); 
 
-}
+
+console.log("IMICIX in roman numerals is: " + romanToDecimal('IMICIX'));
+console.log("D in roman numerals is: " + romanToDecimal('D'));
+console.log("IV in roman numerals is: " + romanToDecimal('IV')); 
+console.log("LIII in roman numerals is: " + romanToDecimal('LIII'));
+console.log("IM in roman numerals is: " + romanToDecimal('IM'));
+// }
 /*-----------------------------------------------------------------------------
      
 
@@ -47,7 +53,6 @@ function decimalToRoman (decimalNumber) {
   romNumeral = numeralAssembler(numeralLetterArray);
 
   return romNumeral;
-
 
   //-------- Support Functions for decimalToRoman ----------
   function numberSplit(decimalNumber){
@@ -137,15 +142,147 @@ function decimalToRoman (decimalNumber) {
 
 //************** romanToDecimal Function ********************
 
-function romanToDecimal (romNumeral) {
+function romanToDecimal (romanNumeral) {
   var decNumber = 0;
+  var romanNumeralLetters = ['M', 'D', 'C', 'L', 'X', 'V', 'I'];
+  var newValueArray = [];
+  var numeralArray = [];
 
-  // Implement here!
+  zeroArray(newValueArray, romanNumeralLetters.length);
+  emptyStringArray(numeralArray, romanNumeral.length - 1);
+  numeralToArray(romanNumeral);
+
+  searchAndSort(numeralArray);
+
+  decNumber = sumArray(newValueArray);
 
   return decNumber;
+
+  //-------- Support Functions for romanToDecimal ----------
+  function searchAndSort(romanNumeral){
+    for (var i = 0; i < romanNumeral.length; i++){
+      for (var index = 0; index < romanNumeralLetters.length; index++){
+        if (romanNumeral[i] === romanNumeralLetters[index]){
+          if (romanNumeral[i - 1] === 'I'){
+            switch (romanNumeral[i]){
+                case 'M':
+                  romanNumeral.shift();
+                  romanNumeral.shift();
+                  newValueArray.push(900);
+                  break;
+                case 'D':
+                  romanNumeral.shift();
+                  romanNumeral.shift();
+                  newValueArray.push(400);
+                  break;
+                case 'C':
+                  romanNumeral.shift();
+                  romanNumeral.shift();
+                  newValueArray.push(90);
+                  break;
+                case 'L':
+                  romanNumeral.shift();
+                  romanNumeral.shift();
+                  newValueArray.push(40);
+                  break;
+                case 'X':
+                  romanNumeral.shift();
+                  romanNumeral.shift();
+                  newValueArray.push(9);
+                  break;
+                case 'V':
+                  romanNumeral.shift();
+                  romanNumeral.shift();
+                  newValueArray.push(4);
+                  break;
+                default: ;
+            }
+          } else {
+            switch (romanNumeral[i]){
+                case 'M':
+                  romanNumeral.shift();
+                  newValueArray.push(1000);
+                  break;
+                case 'D':
+                  romanNumeral.shift();
+                  newValueArray.push(500);
+                  break;
+                case 'C':
+                  romanNumeral.shift();
+                  newValueArray.push(100);
+                  break;
+                case 'L':
+                  romanNumeral.shift();
+                  newValueArray.push(50);
+                  break;
+                case 'X':
+                  romanNumeral.shift();
+                  newValueArray.push(10);
+                  break;
+                case 'V':
+                  romanNumeral.shift();
+                  newValueArray.push(5);
+                  break;
+                 default: ;
+            }
+          }
+        }
+      }
+    }
+    //outputArray(newValueArray);
+    //outputArray(romanNumeral);
+  }
+
+  function sumArray(array){
+    var sum = 0;
+
+    for (var i = 0; i < array.length; i++){
+      sum += array[i];
+    }
+    return sum;
+  }
+
+
+  function zeroArray(array , number){
+    for (var i = 0; i < number; i++ ){
+      array[i] = 0;
+    }
+  }
+
+
+  function numeralToArray(romanNumeral){
+    for (var i = 0; i < romanNumeral.length; i++){
+        numeralArray[i] = romanNumeral[i];
+    }
+  }
+
+
+  function emptyStringArray(array , number){
+    for (var i = 0; i < number; i++ ){
+      array[i] = '';
+    }
+  }
+
+
+  function outputArray(array){
+    for (var i = 0; i < array.length; i++){
+      console.log(array[i]);
+      //console.log("This is index " + i + " with value "+ array[i]);
+    }
+  }
+
+
+}
 }
 
 // Don't worry about this stuff. It's here so I can more easily test your code.
 
 module.exports.decimalToRoman = decimalToRoman;
 module.exports.romanToDecimal = romanToDecimal;
+
+
+
+
+
+
+
