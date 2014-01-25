@@ -37,7 +37,7 @@ function decimalToRoman (decimalNumber) {
   var valueArray = [1, 5, 10, 50, 100, 500, 1000];
   
   //Prepare arrays
-  zeroArray(numeralCountArray, valueArray.length - 1);
+  zeroArray(numeralCountArray, valueArray.length);
   emptyStringArray(numeralLetterArray, valueArray.length - 1);
 
   //Divide number for numerals and retrurn
@@ -51,7 +51,7 @@ function decimalToRoman (decimalNumber) {
 
   //-------- Support Functions for decimalToRoman ----------
   function numberSplit(decimalNumber){
-  	//sortSplit(1000, 6);
+  	sortSplit(1000, 6);
   	sortSplit(500, 5);
   	sortSplit(100, 4, 'IM', 'ID');
   	sortSplit(50, 3);
@@ -127,8 +127,8 @@ function decimalToRoman (decimalNumber) {
 
   function outputArray(array){
   	for (var i = 0; i < array.length; i++){
-  		//console.log(array[i]);
-      console.log("This is index " + i + " with value "+ array[i]);
+  		console.log(array[i]);
+      //console.log("This is index " + i + " with value "+ array[i]);
   	}
   }
 
