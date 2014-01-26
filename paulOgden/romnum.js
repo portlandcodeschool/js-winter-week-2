@@ -1,5 +1,5 @@
 //I'm going to come back to this assignment once we learn about testing in JS.
-//Doing this without testing for use cases sounds like a good way to get frustrated. :)
+//Doing this without testing for corner cases sounds like a good way to get frustrated. :)
 
 
 if(!module.parent) { // Put any code you need to test your functions in here:
