@@ -1,7 +1,7 @@
 if(!module.parent) { 
 
-console.log("538 in roman numerals is: " + decimalToRoman(538));
-console.log("DXXXVIII in decimals is: " + romanToDecimal("DXXXVIII"));  
+console.log("444 in roman numerals is: " + decimalToRoman(444));
+console.log("CDXLIV in decimals is: " + romanToDecimal("CDXLIV"));  
 
 }
 
@@ -13,10 +13,10 @@ function decimalToRoman (decNumber) {
   // Split the number into two digit/arrays
    	    hundreds = Math.floor(decNumber / 100),
    	    tens = Math.floor((decNumber - (hundreds*100)) / 10),
-    	    ones = decNumber % 10,
-    	    hundredsArr = [],
-    	    tensArr = [],
-    	    onesArr = [];
+    	ones = decNumber % 10,
+        hundredsArr = [],
+	    tensArr = [],
+        onesArr = [];
 
    // Process the Hundreds Digit
     	if (hundreds >= 1 && hundreds <= 3 ) {
@@ -67,7 +67,7 @@ function decimalToRoman (decNumber) {
     	}
 
   //Bring it all together now!
-    		   romNumeral = hundredsArr.join("") + tensArr.join("") + onesArr.join("");
+    romNumeral = hundredsArr.join("") + tensArr.join("") + onesArr.join("");
   	return romNumeral;
 }
 
