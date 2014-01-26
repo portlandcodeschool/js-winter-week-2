@@ -17,7 +17,8 @@ console.log("D in roman numerals is: " + romanToDecimal('D'));
 console.log("IV in roman numerals is: " + romanToDecimal('IV')); 
 console.log("LIII in roman numerals is: " + romanToDecimal('LIII'));
 console.log("IM in roman numerals is: " + romanToDecimal('IM'));
-// }
+console.log("III in roman numerals is: " + romanToDecimal('III'));
+}
 /*-----------------------------------------------------------------------------
      
 
@@ -162,72 +163,78 @@ function romanToDecimal (romanNumeral) {
   function searchAndSort(romanNumeral){
     for (var i = 0; i < romanNumeral.length; i++){
       for (var index = 0; index < romanNumeralLetters.length; index++){
-        if (romanNumeral[i] === romanNumeralLetters[index]){
-          if (romanNumeral[i - 1] === 'I'){
-            switch (romanNumeral[i]){
+        if ((romanNumeral[i] === 'I') && (romanNumeral[i + 1] != 'I')){
+            switch (romanNumeral[i + 1]){
                 case 'M':
                   romanNumeral.shift();
                   romanNumeral.shift();
-                  newValueArray.push(900);
+                  newValueArray.unshift(900);
+                  outputArray(romanNumeral);
                   break;
                 case 'D':
                   romanNumeral.shift();
                   romanNumeral.shift();
-                  newValueArray.push(400);
+                  newValueArray.unshift(400);
                   break;
                 case 'C':
                   romanNumeral.shift();
                   romanNumeral.shift();
-                  newValueArray.push(90);
+                  newValueArray.unshift(90);
                   break;
                 case 'L':
                   romanNumeral.shift();
                   romanNumeral.shift();
-                  newValueArray.push(40);
+                  newValueArray.unshift(40);
                   break;
                 case 'X':
                   romanNumeral.shift();
                   romanNumeral.shift();
-                  newValueArray.push(9);
+                  newValueArray.unshift(9);
+                  outputArray(romanNumeral);
                   break;
                 case 'V':
                   romanNumeral.shift();
                   romanNumeral.shift();
-                  newValueArray.push(4);
+                  newValueArray.unshift(4);
                   break;
-                default: ;
+                default:
+                  romanNumeral.shift();
+                  newValueArray.unshift(1); ;
             }
-          } else {
+          }  else {
             switch (romanNumeral[i]){
                 case 'M':
                   romanNumeral.shift();
-                  newValueArray.push(1000);
+                  newValueArray.unshift(1000);
                   break;
                 case 'D':
                   romanNumeral.shift();
-                  newValueArray.push(500);
+                  newValueArray.unshift(500);
                   break;
                 case 'C':
                   romanNumeral.shift();
-                  newValueArray.push(100);
+                  newValueArray.unshift(100);
                   break;
                 case 'L':
                   romanNumeral.shift();
-                  newValueArray.push(50);
+                  newValueArray.unshift(50);
                   break;
                 case 'X':
                   romanNumeral.shift();
-                  newValueArray.push(10);
+                  newValueArray.unshift(10);
                   break;
                 case 'V':
                   romanNumeral.shift();
-                  newValueArray.push(5);
+                  newValueArray.unshift(5);
+                  break;
+                case 'I':
+                  romanNumeral.shift();
+                  newValueArray.push(1);
                   break;
                  default: ;
-            }
           }
         }
-      }
+      } 
     }
     //outputArray(newValueArray);
     //outputArray(romanNumeral);
@@ -271,9 +278,8 @@ function romanToDecimal (romanNumeral) {
     }
   }
 
+}
 
-}
-}
 
 // Don't worry about this stuff. It's here so I can more easily test your code.
 
