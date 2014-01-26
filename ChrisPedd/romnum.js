@@ -1,7 +1,7 @@
 if(!module.parent) { 
 
-console.log("538 in roman numerals is: " + decimalToRoman(1));
-console.log("DXXXVIII in decimals is: " + romanToDecimal("X"));  
+console.log("538 in roman numerals is: " + decimalToRoman(538));
+console.log("DXXXVIII in decimals is: " + romanToDecimal("DXXXVIII"));  
 
 }
 
