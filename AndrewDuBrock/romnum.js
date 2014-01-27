@@ -1,13 +1,19 @@
 if(!module.parent) { // Put any code you need to test your functions in here:
 
 // Example:
+console.log("\nTesting decimalToRoman function:\n")
 console.log("53 in roman numerals is: " + decimalToRoman(53));  
 
 //accepts any number of thousands (no commas, though; i.e. 100949 works but not 100,949), but gets crazy looking!!
-console.log("6449 in roman numerals is: " + decimalToRoman(6449));
+console.log("3440 in roman numerals is: " + decimalToRoman(3440));
+console.log("1010 in roman numerals is: " + decimalToRoman(1010));
+console.log("2003 in roman numerals is: " + decimalToRoman(2003));
 
-console.log("MMMMMMCDXLIX in decimal notation is: " + romanToDecimal('MMMMMMCDXLIX'));
-
+console.log("\nTesting romanToDecimal function:\n")
+console.log("LIII in decimal notation is: " + romanToDecimal('LIII'));
+console.log("MMMCDXL in decimal notation is: " + romanToDecimal('MMMCDXL'));
+console.log("MX in decimal notation is: " + romanToDecimal('MX'));
+console.log("MX in decimal notation is: " + romanToDecimal('MMIII'));
 }
 /*-----------------------------------------------------------------------------
      
@@ -75,15 +81,62 @@ function decimalToRoman (decNumber) {
 
 function romanToDecimal (romNumeral) {
   var decNumber = 0;
-  romNumeral = romNumeral.replace('IX', '9').replace('XC', '9').replace('CM', '9');
-  romNumeral = romNumeral.replace('IV', '4').replace('XL', '4').replace('CD', '4');
-  romNumeral = romNumeral.replace('VIII', '8').replace('LXXX', '8').replace('DCCC', '8');
-  romNumeral = romNumeral.replace('VII', '7').replace('LXX', '7').replace('DCC', '7');
-  romNumeral = romNumeral.replace('VI', '6').replace('LX', '6').replace('DC', '6');
-  romNumeral = romNumeral.replace('V', '5').replace('L', '5').replace('D', '5');
-  romNumeral = romNumeral.replace('III', '3').replace('XXX', '3').replace('CCC', '3');
-  romNumeral = romNumeral.replace('II', '2').replace('XX', '2').replace('CC', '2');
-  romNumeral = romNumeral.replace('I', '1').replace('X', '1').replace('C', '1');
+
+//Taking care of integers 1-9
+  switch (romNumeral.substr(romNumeral.length-1, 1)) {
+    case "I": case "V": break;
+    case "X": if ( romNumeral.charAt(romNumeral.length-2) !== "I" ) {
+      romNumeral = romNumeral + "0"; break;
+    };
+    default: romNumeral = romNumeral + "0";
+  }
+  romNumeral = romNumeral.replace('IX', '9');
+  romNumeral = romNumeral.replace('IV', '4');
+  romNumeral = romNumeral.replace('VIII', '8');
+  romNumeral = romNumeral.replace('VII', '7');
+  romNumeral = romNumeral.replace('VI', '6');
+  romNumeral = romNumeral.replace('V', '5');
+  romNumeral = romNumeral.replace('III', '3');
+  romNumeral = romNumeral.replace('II', '2');
+  romNumeral = romNumeral.replace('I', '1');
+
+ //Taking care of the 10s digit
+  switch (romNumeral.substr(romNumeral.length-2, 1)) {
+    case "X": case "L": break;
+    case "C": if ( romNumeral.charAt(romNumeral.length-3) !== "X" ) {
+      romNumeral = [romNumeral.slice(0, romNumeral.length-1) + "0" + romNumeral.slice(romNumeral.length-1)].join('');
+    }; break;
+    default: romNumeral = [romNumeral.slice(0, romNumeral.length-1) + "0" + romNumeral.slice(romNumeral.length-1)].join('');
+  }
+  romNumeral = romNumeral.replace('XC', '9');
+  romNumeral = romNumeral.replace('XL', '4');
+  romNumeral = romNumeral.replace('LXXX', '8');
+  romNumeral = romNumeral.replace('LXX', '7');
+  romNumeral = romNumeral.replace('LX', '6');
+  romNumeral = romNumeral.replace('L', '5');
+  romNumeral = romNumeral.replace('XXX', '3');
+  romNumeral = romNumeral.replace('XX', '2');
+  romNumeral = romNumeral.replace('X', '1');
+
+//Taking care of the 100s digit
+  switch (romNumeral.substr(romNumeral.length-3, 1)) {
+    case "C": case "D": break;
+    case "M": if ( romNumeral.charAt(romNumeral.length-3) !== "C" ) {
+      romNumeral = [romNumeral.slice(0, romNumeral.length-2) + "0" + romNumeral.slice(romNumeral.length-2)].join('');
+    }; break;
+    default: romNumeral = [romNumeral.slice(0, romNumeral.length-2) + "0" + romNumeral.slice(romNumeral.length-2)].join('');
+  }
+  romNumeral = romNumeral.replace('CM', '9');
+  romNumeral = romNumeral.replace('CD', '4');
+  romNumeral = romNumeral.replace('DCCC', '8');
+  romNumeral = romNumeral.replace('DCC', '7');
+  romNumeral = romNumeral.replace('DC', '6');
+  romNumeral = romNumeral.replace('D', '5');
+  romNumeral = romNumeral.replace('CCC', '3');
+  romNumeral = romNumeral.replace('CC', '2');
+  romNumeral = romNumeral.replace('C', '1');
+
+//Taking care of the thousands
   var thousands = (romNumeral.split('M').length - 1);
   romNumeral = romNumeral.replace(/M*/, thousands)
   decNumber = parseInt(romNumeral, 10);
