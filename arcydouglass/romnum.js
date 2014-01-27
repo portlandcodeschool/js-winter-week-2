@@ -169,7 +169,6 @@ function romanToDecimal (romanNumeral) {
                   romanNumeral.shift();
                   romanNumeral.shift();
                   newValueArray.unshift(900);
-                  outputArray(romanNumeral);
                   break;
                 case 'D':
                   romanNumeral.shift();
@@ -190,7 +189,6 @@ function romanToDecimal (romanNumeral) {
                   romanNumeral.shift();
                   romanNumeral.shift();
                   newValueArray.unshift(9);
-                  outputArray(romanNumeral);
                   break;
                 case 'V':
                   romanNumeral.shift();
