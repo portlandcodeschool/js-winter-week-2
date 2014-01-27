@@ -40,6 +40,8 @@ var newNumberArray = [];
 
 copyArray(numberArray, newNumberArray);
 
+numberArray.push(11);
+
 function copyArray(array, newName){
 	for (var i = 0; i < array.length; i++){
 		newName[i] = array [i];
