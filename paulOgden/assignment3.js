@@ -12,7 +12,7 @@ function politeGreeting(){
 
 politeGreeting()
 
-//Par(t 3
+//Part 3
 newsHeadline = function(){
   console.log("Aliens invade earth just to attack Rod Stewart.")
 }
