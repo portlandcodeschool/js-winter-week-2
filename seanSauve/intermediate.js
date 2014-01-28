@@ -11,7 +11,7 @@ function inArray(arr, str){
 
 var hungry = "captain crunch";
 var breakfast = ["franken berry", "captain crunch", "count choculah"]; 
-console.log("\n\nBREAKFAST:\nDoes string " + hungry +" exist in our breakfast?\n");
+console.log("\n\nBREAKFAST:\nDoes " + hungry +" exist in our breakfast?\n");
 console.log("Survey says..." + inArray(breakfast, hungry));
 
 //Part 2 

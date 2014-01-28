@@ -1,8 +1,8 @@
 if(!module.parent) { // Put any code you need to test your functions in here:
 
 // Example:
-//console.log("53 in roman numerals is: " + decimalToRoman(39));
-console.log("X in roman numeral is :" + romanToDecimal('MMMMCMXCIX'));  
+console.log("53 in roman numerals is: " + decimalToRoman(55963));
+//console.log("X in roman numeral is :" + romanToDecimal('MMMMCMXCIX'));  
 
 }
 /*-----------------------------------------------------------------------------
