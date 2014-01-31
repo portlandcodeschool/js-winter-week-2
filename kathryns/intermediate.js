@@ -5,39 +5,39 @@
 //Write a function that accepts an array and a string. 
 //Have it return true if the string is in the array, otherwise it should return false.
 
-//David and Ben, I can get the function below to print false when the string is not in the array
-//But when it is, I can only get it to print both true and false, not just true.
-//Can you give me a little help? Thank you!
+//Got it to work! Thanks for the hints!
 
-var string = "this is the string";
-var array = ["string", "another string", "this is the string"];
+// var string = "this is the string";
+// var array = ["string", "another string", "this is the string"];
+
+var string = 4;
+var array = [1, 2, 3];
 
 function arrayFunction(arr, str) {
 
 
 	//if true print true
 
-		for (var i = 0; i < arr.length; i ++){
+		for (var i = 0; i < arr.length; i++){
 			// console.log(arr[i]);
 			if (arr[i] === str) {
-			console.log("true");
-			break;
-			}
+			return true;
+			} 		
 		}
+
+			return false;
 	//else print false 
 
-		for (var i = 0; i < arr.length; i ++){
-			// console.log(arr[i]);
-			/*if (arr[i] !== str)*/ {
-			console.log("false");
-			break;
-			}
-		}
+		// for (var i = 0; i < arr.length; i ++){
+		// 	// console.log(arr[i]);
+		// 	/*if (arr[i] !== str)*/ {
+		// 	return false
+		// 	}
+		// }
 }
 
-arrayFunction(array, string);
+console.log(arrayFunction(array, string));
 
-//console.log(arrayFunction(array, string));
 
 //Part 2
 //Write a function that returns an exact copy of an existing array
