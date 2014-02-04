@@ -4,19 +4,18 @@
 // Part 1
 var famousMayors = ["Rob Ford", "Sam Adams", "Bob Filner", "Marion Berry"];
 var sanDiegoMayor = "Bob Filner";
-var mayorCheck = mayorWatch();
+
 
 function mayorWatch() {
 	famousMayors.forEach(function (item) {
 		if (item === sanDiegoMayor) {
-			console.log(sanDiegoMayor + " is a famous mayor.");
 			return true;
 		} else {
 			return false;
 		} 
 	});
 }
-mayorCheck;
+mayorWatch();
 
 // Part 2
 var leadingScorersMarch = ["Diego Valeri", "Darlington Nagbe", "Will Johnson"];

@@ -17,7 +17,7 @@ console.log(easyArray);
 easyArray.unshift(0.5);
 
 // Part 6
-easyArray.pop(4);
+easyArray.pop();
 
 // Part 7
 console.log(easyArray);
